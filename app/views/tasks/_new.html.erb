@@ -3,7 +3,11 @@
       <%= field.label(:title, "Title: ")%><br />
       <%= field.text_field(:title) %>
     </div>
-]
+
+    <div class="">
+      <%= field.label(:project_id, "Project:") %>
+      <%= field.select(:project_id, @projects.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
+    </div>
     <div >
       <%= submit_tag("Save") %>
     </div>
