@@ -1,0 +1,24 @@
+<div class="">
+  <%= link_to("Bakc", {:action => 'index'}) %>
+  <%= form_for(:project, :url => {:action => "update", :id => @project.id}) do |field|%>
+    <div class="">
+      <%= field.label(:title, "Title: ")%><br />
+      <%= field.text_field(:title) %>
+    </div>
+    <div class="">
+      <%= field.label(:start_date, "Date of start: ")%><br />
+      <%= field.date_field(:start_date) %>
+    </div>
+    <div class="">
+      <%= field.label(:provide_stop_date, "Date of previde end: ")%><br />
+      <%= field.date_field(:provide_stop_date) %>
+    </div>
+    <div class="">
+      <%= field.label(:is_done, "is_done: ")%><br />
+      <%= field.check_box(:is_done) %>
+    </div>
+    <div >
+      <%= submit_tag("Save") %>
+    </div>
+  <% end %>
+</div>
