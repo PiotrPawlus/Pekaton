@@ -32,7 +32,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# devise
+# bcrypt
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+
+# deviseg
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.1', '>= 4.1.1'
 
