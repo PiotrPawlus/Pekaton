@@ -35,13 +35,7 @@
                 <p>The easiest way to schedule and communicate with your hourly employees.</p>
                 <p>Save tons of time and reduce absenteeism. It's free for 30 days.</p>
                 <div class="clearfix"></div>
-                <form>
-                    <input name="username" placeholder="username" id="username" />
-                    <label for="username">Username</label>
-                    <input name="password" placeholder="password" id="password" />
-                    <label for="password">Password</label>
-                    <input type="submit" value="Log In" />
-                </form>
+                  <%= render(:partial => "login")%>
                 <div class="clearfix"></div>
                 <%= image_tag("login-monitor.png", alt: "Logo Kurier", class: "login-monitor") %>
             </div>
@@ -125,4 +119,3 @@
         </div>
     </div>
 </footer>
-
