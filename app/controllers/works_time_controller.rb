@@ -1,4 +1,6 @@
 class WorksTimeController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @works_time = WorkTime.all
     @new_work_time = WorkTime.new
