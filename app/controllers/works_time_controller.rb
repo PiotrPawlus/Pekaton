@@ -6,17 +6,13 @@ class WorksTimeController < ApplicationController
     @new_work_time = WorkTime.new
   end
 
-  def new
-    @work_time = WorkTime.new
-  end
-
   def create
     @work_time = WorkTime.new(work_time_parameters)
     @work_time.update_attributes(:user_id => current_user.id)
     if @work_time.save
       redirect_to(:action => 'index')
     else
-      render :new
+      render :index
     end
   end
 

@@ -1,0 +1,18 @@
+<%= form_for(:new_project, :url => {:action => "create"}) do |field|%>
+  <div class="">
+    <%= field.label(:title, "Title: ")%><br />
+    <%= field.text_field(:title) %>
+  </div>
+  <div class="">
+    <%= field.label(:start_date, "Date of start: ")%><br />
+    <%= field.date_field(:start_date) %>
+  </div>
+  <div class="">
+    <%= field.label(:provide_stop_date, "Date of previde end: ")%><br />
+    <%= field.date_field(:provide_stop_date) %>
+  </div>
+
+  <div >
+    <%= submit_tag("Save") %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p>
+  <%= render(:partial => "new")%>
+</p>
+
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Zakonczony</th>
+      <th>Tytuł</th>
+      <th>Data rozpoczęcia</th>
+      <th>Data zakończenia</th>
+    </tr>
+    <% @projects.each do |project|%>
+      <tr>
+        <th><%= project.id %></th>
+        <th><%= project.is_done %></th>
+        <th><%= project.title %></th>
+        <th><%= project.start_date %></th>
+        <th><%= project.provide_stop_date %></th>
+
+        <th>
+          <%= link_to("Edycja", {:action => 'edit', :id => project.id}, :class=>"")%>
+          <%= link_to("Usuń", {:action => 'destroy', :id => project.id }, :class=>"")%>
+        </th>
+      </tr>
+    <% end %>
+  </table>

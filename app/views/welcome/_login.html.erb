@@ -1,0 +1,15 @@
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <%= f.email_field :email, autofocus: false, name: "username", placeholder: "username", id: "username" %>
+  <label for="username">Username</label>
+  <%= f.password_field :password, autocomplete: "off", name: "password", placeholder: "password", id: "password" %>
+  <label for="password">Password</label>
+  <%= f.submit "Log In" %>
+<% end %>
+
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <%= f.email_field :email, autofocus: false, name: "username", placeholder: "username", id: "username" %>
+  <label for="username">Username</label>
+  <%= f.password_field :password, autocomplete: "off", name: "password", placeholder: "password", id: "password" %>
+  <label for="password">Password</label>
+  <%= f.submit "Log In" %>
+<% end %>
