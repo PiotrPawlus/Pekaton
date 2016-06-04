@@ -1,7 +1,7 @@
 <header id="index-header">
     <div class="container-fluid">
         <div class="row">
-            <%= image_tag("logo-black.png", alt: "Logo PetaTime") %>
+            <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
             <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
             <ul class="pull-right">
                 <li class="pull-left"><a href="#">Informacje</a></li>
@@ -72,7 +72,11 @@
             <a href="#"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Work</li></a>
             <a href="#"><li><i class="fa fa-certificate" aria-hidden="true"></i>My stats</li></a>
             <a href="#"><li><i class="fa fa-cog" aria-hidden="true"></i>Settings</li></a>
-            <a href="#"><li><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</li></a>
+            <% if user_signed_in? %>
+                <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %> </li>
+            <% else %>
+                <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to('Login', new_user_session_path)  %></li>
+            <% end %>
         </ul>
     </div>
 </aside>
