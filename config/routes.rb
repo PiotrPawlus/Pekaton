@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'works_time/index'
+
+  get 'works_time/new'
+
+  get 'works_time/edit'
+
+  get 'works_time/show'
+
+  get 'works_time/destroy'
+
   devise_for :users, controllers: { registrations: "users/registrations" }
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
