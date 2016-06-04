@@ -8,7 +8,7 @@
         <div class="separate-line"></div>
           <div class="col-xs-6 text-center">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <p><span class="color-white">Login.</span> Please enter your User ID.</p>
+                <p><span class="color-white">Email.</span> Please enter your Email.</p>
                 <%= f.email_field :email, autofocus: true %>
                 <p><span class="color-white">Password.</span> Please enter your Password.</p>
                 <%= f.password_field :password, autocomplete: "off" %>

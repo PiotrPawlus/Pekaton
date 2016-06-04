@@ -26,20 +26,18 @@
   <div class="container">
     <div class="row">
       <h2 class="text-center">Leader Board</h2>
-      <div class="col-xs-12 col-md-2 start-stop-button nopadding">
+      <div class="col-xs-12 col-md-2 start-stop-button">
         <button class="btn btn-primary btn-raised btn-lg">Start</button>
         <button class="btn btn-info btn-raised btn-lg">Break</button>
         <button class="btn btn-danger btn-raised btn-lg">Stop</button>
       </div>
       <div class="col-xs-12 col-md-10 pull-right">
-        <p>
           <%= render(:partial => "new")%>
-        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" id="example">
           <tr>
             <th>ID</th>
             <th>Rozpoczęto</th>
@@ -100,3 +98,5 @@
         </div>
     </div>
 </footer>
+
+

@@ -18,7 +18,6 @@
     }
     .single_task {
         margin-bottom: 10px;
-        text-align: right;
         p {
             text-align: center;
             margin: 0;
@@ -34,6 +33,7 @@
     }
     .start-stop-button {
         text-align: center;
+        margin-top: 35px;
         button {
             display: block;
             margin: 20px auto;
@@ -46,14 +46,17 @@
     .single_task_accept {
         margin-bottom: 30px;
     }
-    .select_single_task {
-        width: 18%;
-        display: inline-block;
-    }
-    .select_single_task:focus {
+    .form-control:focus {
         outline: none;
         border: none;
         -webkit-box-shadow: none;
         box-shadow: none;
     }
+}
+
+.form-group {
+    float: left;
+    width: 18%;
+    text-align: center;
+    margin: 10px 10px 0 0;
 }
