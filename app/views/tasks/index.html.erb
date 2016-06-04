@@ -1,0 +1,24 @@
+<div class="">
+  <h2>TASKS</h2>
+
+  <%= render(:partial => "new")%>
+</div>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Rozpoczęto</th>
+    <th>Zakończono</th>
+    <th>Akcje</th>
+  </tr>
+  <% @tasks.each do |task|%>
+    <tr>
+      <th><%= task.id %></th>
+      <th><%= task.title %></th>
+      <th><%= task.is_done %></th>
+      <th>
+        <%= link_to("Edycja", {:action => 'edit', :id => task.id}, :class=>"")%>
+        <%= link_to("Usuń", {:action => 'destroy', :id => task.id }, :class=>"")%>
+      </th>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,11 @@
+<div class="">
+  <%= form_for(:new_task, :url => {:action => "edit"}) do |field|%>
+    <div class="">
+      <%= field.label(:title, "Title: ")%><br />
+      <%= field.text_field(:title) %>
+    </div>
+    <div >
+      <%= submit_tag("Save") %>
+    </div>
+  <% end %>
+</div>
