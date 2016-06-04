@@ -1,5 +1,5 @@
 <% if current_user.is_admin %>
-  ADMIN LOGGED
+  <%= render(:partial => "admin")%>
 <% else %>
-  USER LOGGED
+  <%= render(:partial => "user")%>
 <% end %>

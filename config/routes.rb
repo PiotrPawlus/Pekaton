@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'works_time/index'
-
-  get 'works_time/new'
-
-  get 'works_time/edit'
-
-  get 'works_time/show'
-
-  get 'works_time/destroy'
+  resources :works_time, :path => 'lb'
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   resources :users
