@@ -1,0 +1,13 @@
+<div class="">
+  <%= form_for(:work_time, :url => {:action => "create"}) do |field|%>
+    <div class="">
+      <%= field.label(:start_at, "Begin: ")%><br />
+      <%= field.datetime_select :start_at, :ampm => true, :minute_step => 15 %>
+    <div class="">
+      <%= field.label(:end_at, "End: ")%><br />
+      <%= field.datetime_select :end_at, :ampm => true, :minute_step => 15 %>
+    <div >
+      <%= submit_tag("Save") %>
+    </div>
+  <% end %>
+</div>
