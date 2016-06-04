@@ -8,4 +8,4 @@
   <%= f.text_field :phone, autofocus: true %>
 
   <p><span class="color-white">User ID.</span> This is your UserID.</p>
-  <%= f.label(:user_id, $user_id) %>
+  <%= f.text_field :user_id, value:$user_id, autofocus: true, class:"user_id", disabled: true %>

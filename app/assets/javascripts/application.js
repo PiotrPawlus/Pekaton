@@ -13,6 +13,8 @@
 //= require turbolinks
 //= require 'jquery-1.12.4'
 //= require 'bootstrap'
+//= require 'material'
+//= require 'ripples'
 //= require_tree .
 
 $(document).ready(function() {
@@ -27,6 +29,8 @@ $(document).ready(function() {
         $('body').css('overflow', 'visible');
     });
 
+    $('.single_task').find('select').addClass('form-control').addClass('select_single_task');
+
     function startTime() {
         var today = new Date();
         var h = today.getHours();
@@ -34,8 +38,7 @@ $(document).ready(function() {
         var s = today.getSeconds();
         m = checkTime(m);
         s = checkTime(s);
-        document.getElementById('txt').innerHTML =
-        h + ":" + m + ":" + s;
+        document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
         var t = setTimeout(startTime, 500);
     }
     function checkTime(i) {
@@ -44,4 +47,18 @@ $(document).ready(function() {
     }
     startTime();
 
+    // For material design
+    $.material.init();
+
+
+
+
+
+
+
 });
+
+
+
+
+

@@ -1,3 +1,59 @@
 // Place all the styles related to the works_time controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.edit-delete {
+    background: rgb(200,200,200);
+    height: 300px;
+}
+#leader_board {
+    padding: 40px 0;
+
+    .margin-bottom-25 {
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    .single_task {
+        margin-bottom: 10px;
+        text-align: right;
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+            label {
+                font-size: 20px;
+                color: rgb(30,30,30);
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    .start-stop-button {
+        text-align: center;
+        button {
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+        }
+        button:first-child {
+            margin-top: 0;
+        }
+    }
+    .single_task_accept {
+        margin-bottom: 30px;
+    }
+    .select_single_task {
+        width: 18%;
+        display: inline-block;
+    }
+    .select_single_task:focus {
+        outline: none;
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}

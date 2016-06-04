@@ -1,15 +1,90 @@
-<div class="">
-  <%= link_to("Bakc", {:action => 'index'}) %>
-  <%= form_for(:work_time, :url => {:action => "update", :id => @work_time.id}) do |field|%>
-
-    <div class="">
-      <%= field.label(:start_at, "Begin: ")%><br />
-      <%= field.datetime_select :start_at, :ampm => true, :minute_step => 15 %>
-    <div class="">
-      <%= field.label(:end_at, "End: ")%><br />
-      <%= field.datetime_select :end_at, :ampm => true, :minute_step => 15 %>
-    <div >
-      <%= submit_tag("Save") %>
+<header id="index-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
+            <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
+            <ul class="pull-right">
+                <li class="pull-left"><a href="/works_time">Leader Board</li>
+                <li class="pull-left">
+                    <% if user_signed_in? %>
+                        <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
+                    <% else %>
+                        <%= link_to('Login', new_user_session_path)  %>
+                    <% end %>
+                </li>
+                <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
     </div>
-  <% end %>
-</div>
+</header>
+
+<!-- <section class="edit-delete">
+</section> -->
+
+<section id="leader_board">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12" style="text-align: center;">
+        <h2 class="text-center">Leader Board</h2>
+
+        <%= link_to({:action => 'index'}, :class=>"btn btn-default margin-bottom-25") do%>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+        <% end %>
+        <%= form_for(:work_time, :url => {:action => "update", :id => @work_time.id}) do |field|%>
+          <div class="single_task">
+            <p><%= field.label(:start_at, "Start: ")%></p>
+            <%= field.datetime_select :start_at, :ampm => true, :minute_step => 15 %>
+          </div>
+          <div class="single_task">
+            <p><%= field.label(:end_at, "Stop: ")%></p>
+            <%= field.datetime_select :end_at, :ampm => true, :minute_step => 15 %>
+          </div>
+          <div class="single_task_accept pull-right">
+            <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+  </div>
+</section>
+
+
+
+<div id="background-black" class="background-black-disactive"></div>
+
+  <aside id="sidebar" class="sidebar-close">
+      <div class="sidebar-header">
+          <h5 class="text-center">MENU</h5>
+          <i id="close-sidebar" class="fa fa-times pull-right" aria-hidden="true"></i>
+      </div>
+      <div class="sidebar-menu">
+          <ul>
+              <a href="/"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
+              <a href="/works_time"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Leader Board</li></a>
+              <a href="#"><li><i class="fa fa-certificate" aria-hidden="true"></i>My stats</li></a>
+              <a href="#"><li><i class="fa fa-cog" aria-hidden="true"></i>Settings</li></a>
+              <% if user_signed_in? %>
+                  <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %> </li>
+              <% else %>
+                  <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to('Login', new_user_session_path)  %></li>
+              <% end %>
+          </ul>
+      </div>
+  </aside>
+
+  <footer style="bottom: 0; left: 0; right: 0; position: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center footer-content">
+                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+                <p>Made by Kuba & Piotrek</p>
+            </div>
+        </div>
+    </div>
+</footer>

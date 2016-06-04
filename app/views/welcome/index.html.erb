@@ -4,7 +4,7 @@
             <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
             <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
             <ul class="pull-right">
-                <li class="pull-left"><a href="#">Informacje</a></li>
+                <li class="pull-left"><a href="/works_time">Leader Board</li>
                 <li class="pull-left">
                     <% if user_signed_in? %>
                         <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
@@ -17,7 +17,6 @@
             <div class="clearfix"></div>
         </div>
     </div>
-
 </header>
 
 <!--[if lt IE 8]>
@@ -68,8 +67,8 @@
     </div>
     <div class="sidebar-menu">
         <ul>
-            <a href="#"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
-            <a href="#"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Work</li></a>
+            <a href="/"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
+            <a href="/works_time"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Leader Board</li></a>
             <a href="#"><li><i class="fa fa-certificate" aria-hidden="true"></i>My stats</li></a>
             <a href="#"><li><i class="fa fa-cog" aria-hidden="true"></i>Settings</li></a>
             <% if user_signed_in? %>
