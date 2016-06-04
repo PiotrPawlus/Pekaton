@@ -1,8 +1,17 @@
 <div class="">
-  <%= form_for(:new_task, :url => {:action => "edit"}) do |field|%>
+  <%= form_for(:task, :url => {:action => "update", :id => @task.id}) do |field|%>
     <div class="">
       <%= field.label(:title, "Title: ")%><br />
       <%= field.text_field(:title) %>
+    </div>
+    is_done
+    <div class="">
+      <%= field.label(:project_id, "Project:") %>
+      <%= field.select(:project_id, @projects.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
+    </div>
+    <div class="">
+      <%= field.label(:is_done, "is_done: ")%><br />
+      <%= field.check_box(:is_done) %>
     </div>
     <div >
       <%= submit_tag("Save") %>

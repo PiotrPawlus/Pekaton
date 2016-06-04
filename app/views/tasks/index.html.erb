@@ -7,6 +7,7 @@
   <tr>
     <th>ID</th>
     <th>Rozpoczęto</th>
+    <th> PROJEKT </th>
     <th>Zakończono</th>
     <th>Akcje</th>
   </tr>
@@ -14,6 +15,7 @@
     <tr>
       <th><%= task.id %></th>
       <th><%= task.title %></th>
+      <th><%= task.project.title %></th>
       <th><%= task.is_done %></th>
       <th>
         <%= link_to("Edycja", {:action => 'edit', :id => task.id}, :class=>"")%>

@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     @new_task = Task.new
+    @projects = Project.all
   end
 
   def new
@@ -21,6 +22,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @projects = Project.all
   end
 
   def update
@@ -42,10 +44,10 @@ class TasksController < ApplicationController
   end
 
   def task_parameters
-    params.require(:new_task).permit(:title)
+    params.require(:new_task).permit(:title, :project_id)
   end
 
   def task_update_parameters
-    params.require(:new_task).permit(:is_done, :title)
+    params.require(:task).permit(:is_done, :title, :project_id)
   end
 end
