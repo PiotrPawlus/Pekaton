@@ -33,12 +33,18 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <% if user_signed_in? %>
+                <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= link_to('Login', new_user_session_path)  %>
+              <% end %>
+            <%= yield %>
 
         <footer>
 
         </footer>
-        <%= yield %>
+
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
-</html>
