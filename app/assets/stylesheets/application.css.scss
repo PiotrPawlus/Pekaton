@@ -10,15 +10,31 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *
+ *= require 'reset'
  *= require 'bootstrap'
  *= require 'bootstrap-theme'
+ *= require 'font-awesome'
  *= require_tree .
  */
 
 body {
-    background: grey;
-    p {
-        color: red;
+
+    #index-header {
+        height: 50px;
+        background: rgba(0,0,0,0.2);
+
+        img {
+            height: 50px;
+        }
+        ul {
+            li {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    background: rgb(230,230,230);
+    h1 {
+        color: black;
     }
 }
