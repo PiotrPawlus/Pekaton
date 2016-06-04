@@ -1,5 +1,26 @@
-<% if current_user.is_admin %>
-  <%= render(:partial => "admin")%>
-<% else %>
-  <%= render(:partial => "user")%>
-<% end %>
+<p>
+  <%= render(:partial => "new")%>
+</p>
+<p>
+  Wszystkie projekty dostępne
+</p>
+
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Rozpoczęto</th>
+      <th>Zakończono</th>
+      <th>Akcje</th>
+    </tr>
+    <% @works_time.each do |time|%>
+      <tr>
+        <th><%= time.id %></th>
+        <th><%= time.start_at %></th>
+        <th><%= time.end_at %></th>
+        <th>
+          <%= link_to("Edycja", {:action => 'edit', :id => time.id}, :class=>"")%>
+          <%= link_to("Usuń", {:action => 'destroy', :id => time.id }, :class=>"")%>
+        </th>
+      </tr>
+    <% end %>
+  </table>

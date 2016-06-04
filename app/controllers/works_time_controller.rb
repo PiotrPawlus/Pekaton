@@ -1,6 +1,7 @@
 class WorksTimeController < ApplicationController
   def index
     @works_time = WorkTime.all
+    @new_work_time = WorkTime.new
   end
 
   def new
@@ -8,20 +9,37 @@ class WorksTimeController < ApplicationController
   end
 
   def create
-    @new_work_time = WorkTime.new(work_time_parameters)
-    if @new_work_time.save
-      redirect_to(:controller => 'works_time', :action => 'index')
+    @work_time = WorkTime.new(work_time_parameters)
+    if @work_time.save
+      redirect_to(:action => 'index')
     else
-      render('new')
+      render :new
     end
   end
 
   def edit
+    @work_time = WorkTime.find(params[:id])
   end
 
-  def show
+  def update
+    work_time = WorkTime.find(params[:id])
+    if work_time.update_attributes(work_time_parameters)
+      redirect_to(:action=>'index')
+    else
+      render('edit')
+    end
   end
 
   def destroy
+    @work_time = WorkTime.find(params[:id])
+  end
+
+  def drop
+    work_time = WorkTime.find(params[:id]).destroy
+    redirect_to(:action => 'index')
+  end
+
+  def work_time_parameters
+    params.require(:work_time).permit(:start_at, :end_at)
   end
 end

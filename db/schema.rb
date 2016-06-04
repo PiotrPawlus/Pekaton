@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160604130814) do
 
   create_table "work_times", force: :cascade do |t|
     t.datetime "end_at"
-    t.datetime "start_at",   null: false
+    t.datetime "start_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
