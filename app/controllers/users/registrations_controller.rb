@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def edit
     super
-    $userID = current_user.userID
+    $user_id = current_user.user_id
   end
 
   private
