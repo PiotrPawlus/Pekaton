@@ -1,1 +1,124 @@
-<h1>Peta Time</h1>
+<header id="index-header">
+    <div class="container-fluid">
+        <div class="row">
+            <%= image_tag("logo-black.png", alt: "Logo PetaTime") %>
+            <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
+            <ul class="pull-right">
+                <li class="pull-left"><a href="#">Informacje</a></li>
+                <li class="pull-left">
+                    <% if user_signed_in? %>
+                        <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
+                    <% else %>
+                        <%= link_to('Login', new_user_session_path)  %>
+                    <% end %>
+                </li>
+                <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+</header>
+
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+    <!-- <p class="notice"><%= notice %></p> -->
+    <!-- <p class="alert"><%= alert %></p> -->
+
+<section id="main-login" class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" class="">
+                <h3 class="title">Schedule next week in minutes. It's free.</h3>
+                <p class="subtitle">EMPLOYEE SCHEDULING SOFTWARE</p>
+                <p>The easiest way to schedule and communicate with your hourly employees.</p>
+                <p>Save tons of time and reduce absenteeism. It's free for 30 days.</p>
+                <div class="clearfix"></div>
+                <form>
+                    <input name="username" placeholder="username" id="username" />
+                    <label for="username">Username</label>
+                    <input name="password" placeholder="password" id="password" />
+                    <label for="password">Password</label>
+                    <input type="submit" value="Log In" />
+                </form>
+                <div class="clearfix"></div>
+                <%= image_tag("login-monitor.png", alt: "Logo Kurier", class: "login-monitor") %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="background-black" class="background-black-disactive"></div>
+
+<aside id="sidebar" class="sidebar-close">
+    <div class="sidebar-header">
+        <h5 class="text-center">MENU</h5>
+        <i id="close-sidebar" class="fa fa-times pull-right" aria-hidden="true"></i>
+    </div>
+    <div class="sidebar-menu">
+        <ul>
+            <a href="#"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
+            <a href="#"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Work</li></a>
+            <a href="#"><li><i class="fa fa-certificate" aria-hidden="true"></i>My stats</li></a>
+            <a href="#"><li><i class="fa fa-cog" aria-hidden="true"></i>Settings</li></a>
+            <a href="#"><li><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</li></a>
+        </ul>
+    </div>
+</aside>
+
+<section id="before-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-5">
+                <h4>Keep in touch</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora consequatur fugit, pariatur minus modi deleniti quod dignissimos facilis vero reprehenderit distinctio dolores ea ex provident quasi, cum perferendis quas voluptate.</p>
+            </div>
+            <div class="col-xs-2">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Our stores</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">
+                <h4>My information</h4>
+                <ul>
+                    <li><a href="#">My orders</a></li>
+                    <li><a href="#">My credit slips</a></li>
+                    <li><a href="#">My addresses</a></li>
+                    <li><a href="#">My personal info</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <h4>Newsletter</h4>
+                <input type="email" placeholder="email" id="newsletter">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center footer-content">
+                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+                <p>Made by Kuba & Piotrek</p>
+            </div>
+        </div>
+    </div>
+</footer>
+

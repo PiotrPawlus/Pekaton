@@ -15,3 +15,33 @@
 //= require 'bootstrap'
 //= require_tree .
 
+$(document).ready(function() {
+    $('#open-sidebar').click(function(event) {
+        $('#background-black').removeClass('background-black-disactive').addClass('background-black-active');
+        $('#sidebar').removeClass('sidebar-close').addClass('sidebar-open');
+        $('body').css('overflow', 'hidden');
+    });
+    $('#close-sidebar').click(function(event) {
+        $('#background-black').removeClass('background-black-active').addClass('background-black-disactive');
+        $('#sidebar').removeClass('sidebar-open').addClass('sidebar-close');
+        $('body').css('overflow', 'visible');
+    });
+
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+    startTime();
+
+});

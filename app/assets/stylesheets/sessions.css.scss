@@ -1,0 +1,97 @@
+.logg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgb(70, 120, 160);
+    color: rgb(255,255,255);
+
+    .logg-content {
+        margin-top: 10%;
+
+        input {
+            background: rgba(255, 255, 255, 0.4);
+            font-size: 24px;
+            border: none;
+            outline: none;
+
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 40px;
+            color: black;
+            border-radius: 2px;
+            margin-bottom: 15px;
+            padding: 2px 5px;
+            color: rgb(40,40,40);
+        }
+        input:active {
+            border: none;
+            outline: none;
+        }
+        input:hover {
+            border: none;
+            outline: none;
+        }
+        input:focus {
+            border: 1px solid rgba(20,20,20,0.5);
+            outline: none;
+        }
+
+        #user_email {
+            // margin-bottom: 15px;
+        }
+        #user_password {
+            // margin-bottom: 25px;
+        }
+        input[type="submit"] {
+            width: 40%;
+            height: 50px;
+            background: rgb(220,220,220);
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 18px;
+            margin: 0 0 2px;
+            color: rgb(184,224,249);
+        }
+        .color-white {
+            color: rgb(255,255,255);
+        }
+    }
+
+    img {
+        display: inline-block;
+    }
+    h3 {
+        display: inline-block;
+    }
+    a {
+        color: rgb(184,224,249);
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    a:hover {
+        cursor: pointer;
+        color: rgb(255,255,255);
+        text-decoration: none;
+    }
+    a:focus {
+        border: none;
+        outline: none;
+        text-decoration: none;
+    }
+    .separate-line {
+        background: rgba(255,255,255,0.7);
+        height: 1px;
+        margin: 20px 0 30px;
+    }
+
+    #txt {
+        text-align: center;
+        font-size: 100px;
+        color: #6b9ec2;
+
+    }
+}

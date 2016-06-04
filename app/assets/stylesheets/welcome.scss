@@ -1,9 +1,325 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+*
+*
+*/
 
-body {
+
+#main-login {
+    overflow: hidden;
+    height: 800px;
+    .title {
+        font-size: 60px;
+        padding-top: 15px;
+        padding-bottom: 25px;
+    }
+    .subtitle {
+        font-size: 14px;
+        padding-bottom: 14px;
+        color: #777;
+        text-transform: uppercase;
+    }
     p {
-        color: red;
+        font-family: 'Lato', sans-serif;
+        color: #777;
+        margin: 0;
+    }
+    .login-monitor {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: -1000px;
     }
 }
+
+
+.welcome {
+  form {
+      font-family: 'Lato', sans-serif;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -100px;
+      width: 80%;
+      height: 50px;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: auto;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      min-width: 300px;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+  }
+
+  input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #023373;
+    height: 100%;
+    padding: 20px 20px 20px 40px;
+    border: 0;
+    -webkit-flex: 10 10 1px;
+    flex: 10 10 1px;
+  }
+  input:focus {
+    outline: none;
+  }
+  input:focus + label:after {
+    color: #023373;
+  }
+  input#username {
+    border-radius: 4px 0 0 4px;
+  }
+  input[type="submit"] {
+    -webkit-flex: 0 0 100px;
+    flex: 0 0 100px;
+    background: #023373;
+    font-weight: 500;
+    border: 0;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  label {
+    font-size: 0;
+  }
+  label[for="username"] {
+    -webkit-flex: 0 0 50px;
+    flex: 0 0 50px;
+  }
+  label[for="username"]:after, label[for="password"]:after {
+    content: '\1F464';
+    font-family: 'Lato', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    text-indent: 0;
+    font-size: 18px;
+    margin-top: -10px;
+    color: #ccc;
+  }
+  label[for="password"]:before {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 40px);
+    text-indent: 0;
+    content: '';
+    width: 1px;
+    height: 30px;
+    margin-top: -15px;
+    border-left: 1px solid #ccc;
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  label[for="password"]:after {
+    content: '\1F512';
+    left: calc(50% - 15px);
+  }
+  ::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: #ccc;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ccc;
+  }
+  :-ms-input-placeholder {
+    color: #ccc;
+  }
+}
+
+
+
+
+
+#testimonials {
+    height: 1200px;
+    background: rgb(224, 224, 224);
+}
+
+#background-black {
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20,20,20,0.7);
+}
+.background-black-active {
+    opacity: 0.8;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    visibility: show;
+}
+.background-black-disactive {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    visibility: hidden;
+}
+
+
+.sidebar-close {
+    margin-right: -400px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.sidebar-open {
+    margin-right: 0px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#sidebar {
+    position: fixed;
+    z-index: 110;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    background: rgba(20,20,20,0.95);
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.7);
+
+    .sidebar-header {
+        padding: 0;
+        height: 50px;
+        background: rgb(20,20,20);
+
+        h5 {
+            display: block;
+            color: rgb(240,240,240);
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+            line-height: 50px;
+        }
+        i {
+            font-size: 24px;
+            color: rgb(140,140,140);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin-right: 20px;
+            line-height: 50px;
+
+        }
+        i:hover {
+            cursor: pointer;
+            color: rgb(255,255,255);
+        }
+    }
+    .sidebar-menu {
+        ul {
+            position: fixed;
+            min-height:100%;
+            overflow: scroll;
+            height: 100%;
+            margin-top: 10px;
+            width: 400px;
+
+            a:first-child {
+                border-top: 1px solid rgba(20,20,20,0.90);
+            }
+            a {
+                text-transform: uppercase;
+                display: block;
+                color: rgb(170,170,170);
+                width: 100%;
+                height: 70px;
+                border-bottom: 1px solid rgba(20,20,20,0.90);
+            }
+            a:hover {
+                text-decoration: none;
+                color: rgb(255,255,255);
+            }
+            li {
+                height: 70px;
+                cursor: pointer;
+                text-align: center;
+                font-size: 18px;
+                line-height: 70px;
+                -webkit-transition: all 0.1s ease;
+                -moz-transition: all 0.1s ease;
+                -o-transition: all 0.1s ease;
+                transition: all 0.1s ease;
+
+                i {
+                    position: absolute;
+                    font-size: 24px;
+                    line-height: 70px;
+                    left: 0;
+                    margin-left: 20px;
+                }
+            }
+            li:hover {
+                background: rgba(20,20,20,0.95);
+            }
+        }
+    }
+}
+
+#before-footer {
+  background: rgb(42, 42, 42);
+  padding: 50px 0 30px;
+  color: rgb(250,250,250);
+
+  h4 {
+    color: rgb(250,250,250);
+  }
+  p {
+    color: rgb(150,150,150);
+  }
+  ul {
+    li {
+        margin: 15px 0;
+        a {
+          color: rgb(150,150,150);
+        }
+        a:hover {
+          color: #4FBAF2;
+          text-transform: none;
+          text-decoration: none;
+        }
+    }
+  }
+  input {
+    width: 100%;
+    height: 20px;
+    padding: 15px 5px;
+  }
+
+
+
+}
+
+
