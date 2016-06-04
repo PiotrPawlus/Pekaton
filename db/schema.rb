@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160604110800) do
     t.string   "surname",                limit: 40,                 null: false
     t.string   "phone",                  limit: 15,                 null: false
     t.boolean  "is_admin",                          default: false, null: false
-    t.integer  "userID",                                            null: false
+    t.string   "user_id",                limit: 6,                  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
