@@ -67,15 +67,15 @@
                 <%= link_to("Delete", {:action => 'destroy', :id => time.id }, :class=>"btn btn-raised btn-danger")%>
               </th>
             </tr>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th>sum: <%= @all_hours %></th>
-              <th class="pull-right"></th>
-          </tr>
           <% end %>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>sum: <%= @all_hours %></th>
+            <th class="pull-right"></th>
+          </tr>
         </table>
       </div>
     </div>
