@@ -19,6 +19,7 @@ class WorksTimeController < ApplicationController
 
   def edit
     @work_time = WorkTime.find(params[:id])
+    @tasks = Task.all
   end
 
   def update

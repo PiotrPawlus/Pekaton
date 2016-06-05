@@ -42,6 +42,10 @@
             <p><%= field.label(:end_at, "Stop: ")%></p>
             <%= field.datetime_select :end_at, :ampm => true, :minute_step => 15, date_separator: '', time_separator: '', datetime_separator: '' %>
           </div>
+          <div class="">
+            <%= field.label(:task_id, "Task:") %>
+            <%= field.select(:task_id, @tasks.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
+          </div>
           <div class="clearfix"></div>
           <div class="single_task_accept pull-right">
             <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
