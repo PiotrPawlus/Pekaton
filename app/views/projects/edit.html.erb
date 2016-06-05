@@ -1,24 +1,81 @@
-<div class="">
-  <%= link_to("Bakc", {:action => 'index'}) %>
-  <%= form_for(:project, :url => {:action => "update", :id => @project.id}) do |field|%>
-    <div class="">
-      <%= field.label(:title, "Title: ")%><br />
-      <%= field.text_field(:title) %>
+<header id="index-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
+            <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
+            <ul class="pull-right">
+                <li class="pull-left"><a href="/works_time">Leader Board</li>
+                <li class="pull-left">
+                  <% if user_signed_in? %>
+                    <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+                  <% else %>
+                    <%= link_to('Log In', new_user_session_path)  %>
+                  <% end %>
+                </li>
+                <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
     </div>
-  <div class="">
-      <%= field.label(:start_date, "Date of start: ")%><br />
-      <%= field.date_field(:start_date) %>
+</header>
+
+<!-- <section class="edit-delete">
+</section> -->
+
+<section id="leader_board">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12" style="text-align: center;">
+        <h2 class="text-center">Project edit</h2>
+        <%= link_to({:action => 'index'}, :class=>"btn btn-default margin-bottom-25") do%>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+        <% end %>
+        <%= form_for(:project, :url => {:action => "update", :id => @project.id}) do |field|%>
+          <div class="single_task">
+            <p><%= field.label(:title, "Title: ")%></p>
+            <%= field.text_field(:title, :class => 'form-control form-control-fix') %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="single_task">
+            <p><%= field.label(:start_date, "Date of start: ")%></p>
+            <%= field.date_field(:start_date, :class => 'form-control form-control-fix') %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="single_task">
+            <p><%= field.label(:provide_stop_date, "Date of previde end: ")%></p>
+            <%= field.date_field(:provide_stop_date, :class => 'form-control form-control-fix') %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="single_task">
+            <p><%= field.label(:is_done, "is_done: ")%></p>
+            <%= field.check_box(:is_done, :class => 'form-control form-control-fix') %>
+          </div>
+          <div class="clearfix"></div>
+          <div class="single_task_accept pull-right">
+            <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="">
-      <%= field.label(:provide_stop_date, "Date of previde end: ")%><br />
-      <%= field.date_field(:provide_stop_date) %>
+  </div>
+</section>
+
+  <style>
+    .form-group {
+      float: none;
+      margin: auto;
+    }
+  </style>
+
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center footer-content">
+                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+                <p>Made by Kuba & Piotrek</p>
+            </div>
+        </div>
     </div>
-    <div class="">
-      <%= field.label(:is_done, "is_done: ")%><br />
-      <%= field.check_box(:is_done) %>
-    </div>
-    <div >
-      <%= submit_tag("Save") %>
-    </div>
-  <% end %>
-</div>
+</footer>

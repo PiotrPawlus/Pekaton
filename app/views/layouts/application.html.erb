@@ -14,13 +14,43 @@
         <%= csrf_meta_tags %>
         <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Roboto:400,700,300|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
-        <script src="https://use.fontawesome.com/41b9e4af22.js"></script>
-        <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
     </head>
     <body class="<%= controller.controller_name%>">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-            <%= yield %>
+        <%= yield %>
+
+        <div id="background-black" class="background-black-disactive"></div>
+
+        <aside id="sidebar" class="sidebar-close">
+            <div class="sidebar-header">
+                <h5 class="text-center">MENU</h5>
+                <i id="close-sidebar" class="fa fa-times pull-right" aria-hidden="true"></i>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <a href="/"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
+                    <% if user_signed_in? %>
+                      <% if current_user.is_admin %>
+                        <% if current_user.is_manager %>
+                          <a href="/works_time"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Leader Board</li></a>
+                          <a href="/projects"><li><i class="fa fa-certificate" aria-hidden="true"></i>Projects</li></a>
+                          <a href="/tasks"><li><i class="fa fa-certificate" aria-hidden="true"></i>Tasks</li></a>
+                        <% end %>
+                        <a href="/users"><li><i class="fa fa-certificate" aria-hidden="true"></i>Users</li></a>
+                      <% end %>
+                        <a href="/users/edit"><li><i class="fa fa-cog" aria-hidden="true"></i>My account</li></a>
+                        <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to "Log Out", destroy_user_session_path, :method => :delete %> </li>
+                    <% else %>
+                        <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to('Log In', new_user_session_path)  %></li>
+                        <li><i class="fa fa-sign-out" aria-hidden="true"></i><<%= link_to "Sign up", new_registration_path(resource_name) %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </aside>
+
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+        <script src="https://use.fontawesome.com/41b9e4af22.js"></script>
     </body>

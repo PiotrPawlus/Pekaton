@@ -1,10 +1,24 @@
   <%= form_for(:new_task, :url => {:action => "create"}) do |field|%>
-    <div class="">
-      <%= field.label(:title, "Title: ")%><br />
-      <%= field.text_field(:title) %>
+    <div class="single_task">
+      <p><%= field.label(:title, "Title: ")%></p>
+      <%= field.text_field(:title, class: 'form-control form-control-fix') %>
+      <div class="clearfix"></div>
     </div>
-]
-    <div >
-      <%= submit_tag("Save") %>
+    <div class="clearfix"></div>
+    <div class="single_task">
+      <p><%= field.label(:project_id, "Project:") %></p>
+      <%= field.select(:project_id, @projects.map{|t| [t.title, t.id]}, { :class => 'form-control'} )%>
+      <div class="clearfix"></div>
+    </div>
+    <div class="single_task_accept pull-right">
+      <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
+      <div class="clearfix"></div>
     </div>
   <% end %>
+
+  <style>
+    .form-group {
+      float: none;
+      margin: auto;
+    }
+  </style>

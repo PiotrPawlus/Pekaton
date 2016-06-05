@@ -1,9 +1,52 @@
-<div class="">
-  <%= link_to("Back", {:action => 'index'}) %>
+<header id="index-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
+            <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
+            <ul class="pull-right">
+                <li class="pull-left"><a href="/works_time">Leader Board</li>
+                <li class="pull-left">
+                  <% if user_signed_in? %>
+                    <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+                  <% else %>
+                    <%= link_to('Log In', new_user_session_path)  %>
+                  <% end %>
+                </li>
+                <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>
 
-  <%= form_for(:task, :url => {:action => "drop", :id => @task.id}) do |field|%>
-    <p>Do you want to delete this?</p>
+<!-- <section class="edit-delete">
+</section> -->
 
-    <%= submit_tag("Delete") %>
-  <% end %>
-</div>
+<section id="leader_board">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 pull-center" style="text-align: center;">
+        <h2 class="text-center">Delete tasks</h2>
+            <%= link_to({:action => 'index'}, :class=>"btn btn-default margin-bottom-25") do%>
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+            <% end %>
+            <%= form_for(:task, :url => {:action => "drop", :id => @task.id}) do |field|%>
+                <p>Do you want to delete this?</p>
+                <%= submit_tag("Delete", class:"btn btn-raised btn-danger") %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</section>
+
+  <footer style="bottom: 0; left: 0; right: 0; position: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center footer-content">
+                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+                <p>Made by Kuba & Piotrek</p>
+            </div>
+        </div>
+    </div>
+</footer>

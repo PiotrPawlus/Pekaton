@@ -8,7 +8,7 @@
         <div class="separate-line"></div>
           <div class="col-xs-6 text-center">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <p><span class="color-white">Login.</span> Please enter your User ID.</p>
+                <p><span class="color-white">Email.</span> Please enter your Email.</p>
                 <%= f.email_field :email, autofocus: true %>
                 <p><span class="color-white">Password.</span> Please enter your Password.</p>
                 <%= f.password_field :password, autocomplete: "off" %>
@@ -28,3 +28,21 @@
     </div>
   </div>
 </section>
+
+<script>
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+    startTime();
+</script>
