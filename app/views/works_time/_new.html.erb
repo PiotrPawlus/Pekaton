@@ -15,8 +15,8 @@
       <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
       <div class="clearfix"></div>
     </div>
-    <div class="">
+    <div class="single_task">
       <%= field.label(:task_id, "Task:") %>
-      <%= field.select(:task_id, @tasks.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
+      <%= field.select(:task_id, @tasks.map{|t| [t.title, t.id]}, { :class => 'form-control'} )%>
     </div>
   <% end %>
