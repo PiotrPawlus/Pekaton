@@ -1,0 +1,30 @@
+<div class="">
+
+<p>
+  <th>ID Project</th>
+  <th>Project Name</th>
+  <th>Project data of start</th>
+  <th>Project data of end</th>
+</p>
+
+  <table>
+    <tr>
+      <th>ID Task</th>
+      <th>Task Name</th>
+      <th>Is done</th>
+      <th>Task data of create</th>
+      <th>Task data of last update</th>
+    </tr>
+    <% @tasks.each do |task| %>
+      <% if task.project_id === @project.id %>
+        <tr>
+          <th><%= task.id %></th>
+          <th><%= task.title %></th>
+          <th><%= task.is_done %></th>
+          <th><%= task.created_at%></th>
+          <th><%= task.updated_at %></th>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

@@ -19,8 +19,9 @@
         <th><%= project.provide_stop_date %></th>
 
         <th>
-          <%= link_to("Edycja", {:action => 'edit', :id => project.id}, :class=>"")%>
-          <%= link_to("Usuń", {:action => 'destroy', :id => project.id }, :class=>"")%>
+          <%= link_to("Show", {:action => 'show', :id => project.id}, :class=>"")%>
+          <%= link_to("Edit", {:action => 'edit', :id => project.id}, :class=>"")%>
+          <%= link_to("Delete", {:action => 'destroy', :id => project.id }, :class=>"")%>
         </th>
       </tr>
     <% end %>
