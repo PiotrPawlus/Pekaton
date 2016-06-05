@@ -42,13 +42,19 @@
             <th>ID</th>
             <th>Start</th>
             <th>Finish</th>
+            <th>Task</th>
             <th class="pull-right">Action</th>
           </tr>
           <% @works_time.each do |time|%>
             <tr>
               <th><%= time.id %></th>
-              <th><%= time.start_at %></th>
-              <th><%= time.end_at %></th>
+              <th><%= time.start_at.strftime("%m/%d/%y %H:%M") %></th>
+              <th><%= time.end_at.strftime("%m/%d/%y %H:%M") %></th>
+              <% @tasks.each do |task| %>
+                  <% if task.id == time.task_id %>
+                    <th><%= task.title %></th>
+                  <% end %>
+              <% end %>
               <th class="pull-right">
                 <%= link_to("Edit", {:action => 'edit', :id => time.id}, :class=>"btn btn-raised btn-warning")%>
                 <%= link_to("Delete", {:action => 'destroy', :id => time.id }, :class=>"btn btn-raised btn-danger")%>
@@ -73,5 +79,3 @@
         </div>
     </div>
 </footer>
-
-

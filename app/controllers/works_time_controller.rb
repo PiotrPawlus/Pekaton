@@ -4,6 +4,7 @@ class WorksTimeController < ApplicationController
   def index
     @works_time = WorkTime.all
     @new_work_time = WorkTime.new
+    @tasks = Task.all
   end
 
   def create
@@ -39,6 +40,6 @@ class WorksTimeController < ApplicationController
   end
 
   def work_time_parameters
-    params.require(:work_time).permit(:start_at, :end_at)
+    params.require(:work_time).permit(:start_at, :end_at, :task_id)
   end
 end
