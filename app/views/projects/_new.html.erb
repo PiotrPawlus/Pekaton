@@ -1,18 +1,26 @@
 <%= form_for(:new_project, :url => {:action => "create"}) do |field|%>
-  <div class="">
-    <%= field.label(:title, "Title: ")%><br />
-    <%= field.text_field(:title) %>
+  <div class="single_task">
+    <p><%= field.label(:title, "Title: ")%></p>
+    <%= field.text_field(:title, :class => 'form-control form-control-fix') %>
   </div>
-  <div class="">
-    <%= field.label(:start_date, "Date of start: ")%><br />
-    <%= field.date_field(:start_date) %>
+  <div class="clearfix"></div>
+  <div class="single_task">
+    <p><%= field.label(:start_date, "Date of start: ")%></p>
+    <%= field.date_field(:start_date, :class => 'form-control form-control-fix') %>
   </div>
-  <div class="">
-    <%= field.label(:provide_stop_date, "Date of previde end: ")%><br />
-    <%= field.date_field(:provide_stop_date) %>
+  <div class="clearfix"></div>
+  <div class="single_task">
+    <p><%= field.label(:provide_stop_date, "Date of previde end: ")%></p>
+    <%= field.date_field(:provide_stop_date, :class => 'form-control form-control-fix') %>
   </div>
-
-  <div >
-    <%= submit_tag("Save") %>
+  <div class="single_task_accept pull-right">
+    <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
   </div>
 <% end %>
+
+ <style>
+    .form-group {
+      float: none;
+      margin: auto;
+    }
+  </style>
