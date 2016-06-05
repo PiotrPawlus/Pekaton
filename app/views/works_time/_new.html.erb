@@ -16,7 +16,8 @@
       <div class="clearfix"></div>
     </div>
     <div class="single_task">
-      <%= field.label(:task_id, "Task:") %>
+        <p style="display: inline-block; float: left; font-size: 20px; padding-top: 14px; padding-right: 10px;">Task:</p>
+      </%>
       <%= field.select(:task_id, @tasks.map{|t| [t.title, t.id]}, { :class => 'form-control'} )%>
     </div>
   <% end %>
