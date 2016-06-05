@@ -6,10 +6,10 @@
             <ul class="pull-right">
                 <li class="pull-left"><a href="/works_time">Leader Board</li>
                 <li class="pull-left">
-                    <% if user_signed_in? %>
-                        <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
+                  <% if user_signed_in? %>
+                      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
                     <% else %>
-                        <%= link_to('Login', new_user_session_path)  %>
+                      <%= link_to('Log In', new_user_session_path)  %>
                     <% end %>
                 </li>
                 <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
@@ -42,8 +42,9 @@
             <p><%= field.label(:end_at, "Stop: ")%></p>
             <%= field.datetime_select :end_at, :ampm => true, :minute_step => 15, date_separator: '', time_separator: '', datetime_separator: '' %>
           </div>
-          <div class="">
-            <%= field.label(:task_id, "Task:") %>
+          <div class="clearfix"></div>
+          <div class="single_task">
+            <p>Task: </p>
             <%= field.select(:task_id, @tasks.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
           </div>
           <div class="clearfix"></div>

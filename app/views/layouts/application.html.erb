@@ -32,16 +32,21 @@
                 <ul>
                     <a href="/"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
                     <% if user_signed_in? %>
-                      <% if current_user.is_admin %>
-                        <% if current_user.is_manager %>
-                          <a href="/works_time"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Leader Board</li></a>
-                          <a href="/projects"><li><i class="fa fa-certificate" aria-hidden="true"></i>Projects</li></a>
-                          <a href="/tasks"><li><i class="fa fa-certificate" aria-hidden="true"></i>Tasks</li></a>
+                        <a href="/works_time"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Leader Board</li></a>
+                        <% if current_user.is_admin && !current_user.is_manager %>
+                            <a href="/projects"><li><i class="fa fa-certificate" aria-hidden="true"></i>Projects</li></a>
+                            <a href="/tasks"><li><i class="fa fa-certificate" aria-hidden="true"></i>Tasks</li></a>
+                            <a href="/users"><li><i class="fa fa-certificate" aria-hidden="true"></i>Users</li></a>
+                        <% elsif !current_user.is_admin && current_user.is_manager %>
+                            <a href="/projects"><li><i class="fa fa-certificate" aria-hidden="true"></i>Projects</li></a>
+                            <a href="/tasks"><li><i class="fa fa-certificate" aria-hidden="true"></i>Tasks</li></a>
+                        <% elsif current_user.is_admin && current_user.is_manager %>
+                            <a href="/projects"><li><i class="fa fa-certificate" aria-hidden="true"></i>Projects</li></a>
+                            <a href="/tasks"><li><i class="fa fa-certificate" aria-hidden="true"></i>Tasks</li></a>
+                            <a href="/users"><li><i class="fa fa-certificate" aria-hidden="true"></i>Users</li></a>
                         <% end %>
-                        <a href="/users"><li><i class="fa fa-certificate" aria-hidden="true"></i>Users</li></a>
-                      <% end %>
-                        <a href="/users/edit"><li><i class="fa fa-cog" aria-hidden="true"></i>My account</li></a>
-                        <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to "Log Out", destroy_user_session_path, :method => :delete %> </li>
+                            <a href="/users/edit"><li><i class="fa fa-cog" aria-hidden="true"></i>My account</li></a>
+                            <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to "Log Out", destroy_user_session_path, :method => :delete %> </li>
                     <% else %>
                         <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to('Log In', new_user_session_path)  %></li>
                         <li><i class="fa fa-sign-out" aria-hidden="true"></i><<%= link_to "Sign up", new_registration_path(resource_name) %></li>
