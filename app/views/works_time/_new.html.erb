@@ -1,4 +1,5 @@
   <%= form_for(:work_time, :url => {:action => "create"}) do |field|%>
+
     <div class="single_task">
       <p><%= field.label(:start_at, "Start: ")%></p>
       <%= field.datetime_select :start_at, :ampm => true, :minute_step => 15, date_separator: '', time_separator: '', datetime_separator: ''  %>
@@ -10,9 +11,12 @@
       <%= field.datetime_select :end_at, :ampm => true, :minute_step => 15, date_separator: '', time_separator: '', datetime_separator: '' %>
       <div class="clearfix"></div>
     </div>
-
     <div class="single_task_accept pull-right">
       <%= submit_tag("Save", class:"btn btn-raised btn-success") %>
       <div class="clearfix"></div>
+    </div>
+    <div class="">
+      <%= field.label(:task_id, "Task:") %>
+      <%= field.select(:task_id, @tasks.map{|t| [t.title, t.id]}, :class => 'form-control' )%>
     </div>
   <% end %>

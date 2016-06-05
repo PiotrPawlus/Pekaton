@@ -19,55 +19,54 @@
     </div>
 </header>
 
-<!-- <section class="edit-delete">
-</section> -->
-
-<section id="leader_board">
-  <div class="container">
-    <div class="row">
-      <h2 class="text-center">Leader Board</h2>
-      <div class="col-xs-12 col-md-2 start-stop-button">
-        <button class="btn btn-primary btn-raised btn-lg">Start</button>
-        <button class="btn btn-info btn-raised btn-lg">Break</button>
-        <button class="btn btn-danger btn-raised btn-lg">Stop</button>
+<% if current_user.is_admin? %>
+  <section id="leader_board">
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center">Admin Board</h2>
       </div>
-      <div class="col-xs-12 col-md-10 pull-right">
-          <%= render(:partial => "new")%>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <table class="table table-striped table-hover" id="example">
-          <tr>
-            <th>ID</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Task</th>
-            <th class="pull-right">Akcje</th>
-          </tr>
-          <% @works_time.each do |time|%>
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table table-striped table-hover" id="example">
             <tr>
-              <th><%= time.id %></th>
-              <th><%= time.start_at.strftime("%m/%d/%y %H:%M") %></th>
-              <th><%= time.end_at.strftime("%m/%d/%y %H:%M") %></th>
-              <% @tasks.each do |task| %>
-                  <% if task.id == time.task_id %>
-                    <th><%= task.title %></th>
-                  <% end %>
-              <% end %>
-              <th class="pull-right">
-                <%= link_to("Edit", {:action => 'edit', :id => time.id}, :class=>"btn btn-raised btn-warning")%>
-                <%= link_to("Delete", {:action => 'destroy', :id => time.id }, :class=>"btn btn-raised btn-danger")%>
-              </th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>E-mail</th>
+              <th>is_admin</th>
+              <th>created_at</th>
+              <th>updated_at</th>
+              <th>Actions</th>
+
             </tr>
-          <% end %>
-        </table>
+            <% @users.each do |user| %>
+              <tr>
+                <th><%= user.id %></th>
+                <th><%= user.name %></th>
+                <th><%= user.surname %></th>
+                <th><%= user.email %></th>
+                <th><%= user.is_admin%></th>
+                <th><%= user.created_at.strftime("%m/%d/%y %H:%M") %></th>
+                <th><%= user.updated_at.strftime("%m/%d/%y %H:%M") %></th>
+                <% if current_user.id != user.id %>
+                  <% if user.is_admin%>
+                    <th class="pull-right">
+                      <%= link_to("Not Admin", {:action => 'update', :id => user.id}, :class=>"btn btn-raised btn-warning")%>
+                    </th>
+                  <% else %>
+                    <th class="pull-right">
+                      <%= link_to("Admin", {:action => 'update', :id => user.id}, :class=>"btn btn-raised btn-warning")%>
+                    </th>
+                  <% end %>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-
+  </section>
+<% end %>
 
 <div id="background-black" class="background-black-disactive"></div>
 
@@ -91,16 +90,14 @@
       </div>
   </aside>
 
-
-
-  <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center footer-content">
-                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
-                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
-                <p>Made by Kuba & Piotrek</p>
-            </div>
-        </div>
-    </div>
+<footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12 text-center footer-content">
+              <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+              <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+              <p>Made by Kuba & Piotrek</p>
+          </div>
+      </div>
+  </div>
 </footer>
