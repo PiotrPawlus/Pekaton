@@ -1,28 +1,77 @@
-<p>
-  <%= render(:partial => "new")%>
-</p>
+<header id="index-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
+            <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
+            <ul class="pull-right">
+                <li class="pull-left"><a href="/works_time">Projects</li>
+                <li class="pull-left">
+                    <% if user_signed_in? %>
+                        <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
+                    <% else %>
+                        <%= link_to('Login', new_user_session_path)  %>
+                    <% end %>
+                </li>
+                <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>
 
-<table>
-    <tr>
-      <th>ID</th>
-      <th>Zakonczony</th>
-      <th>Tytuł</th>
-      <th>Data rozpoczęcia</th>
-      <th>Data zakończenia</th>
-    </tr>
-    <% @projects.each do |project|%>
-      <tr>
-        <th><%= project.id %></th>
-        <th><%= project.is_done %></th>
-        <th><%= project.title %></th>
-        <th><%= project.start_date %></th>
-        <th><%= project.provide_stop_date %></th>
+<!-- <section class="edit-delete">
+</section> -->
 
-        <th>
-          <%= link_to("Show", {:action => 'show', :id => project.id}, :class=>"")%>
-          <%= link_to("Edit", {:action => 'edit', :id => project.id}, :class=>"")%>
-          <%= link_to("Delete", {:action => 'destroy', :id => project.id }, :class=>"")%>
-        </th>
-      </tr>
-    <% end %>
-  </table>
+<section id="leader_board">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">Projects</h2>
+      <div class="col-xs-12 pull-center">
+          <%= render(:partial => "new")%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+
+        <table class="table table-striped table-hover" id="example">
+          <tr>
+            <th>ID</th>
+            <th>Is done</th>
+            <th>Project name</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th class="pull-right">Action</th>
+          </tr>
+          <% @projects.each do |project|%>
+            <tr>
+              <th><%= project.id %></th>
+              <th><%= project.is_done %></th>
+              <th><%= project.title %></th>
+              <th><%= project.start_date %></th>
+              <th><%= project.provide_stop_date %></th>
+              <th class="pull-right">
+                <%= link_to("Show", {:action => 'show', :id => project.id}, :class=>"btn btn-raised btn-info")%>
+                <%= link_to("Edit", {:action => 'edit', :id => project.id}, :class=>"btn btn-raised btn-warning")%>
+                <%= link_to("Delete", {:action => 'destroy', :id => project.id }, :class=>"btn btn-raised btn-danger")%>
+              </th>
+            </tr>
+          <% end %>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center footer-content">
+                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+                <p>Made by Kuba & Piotrek</p>
+            </div>
+        </div>
+    </div>
+</footer>
