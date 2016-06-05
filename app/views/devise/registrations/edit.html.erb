@@ -1,41 +1,80 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<header id="index-header">
+    <div class="container-fluid">
+        <div class="row">
+            <a href="/"><%= image_tag("logo-black.png", alt: "Logo PetaTime") %></a>
+            <!-- <img src="/images/logo-black.png" alt="LOGO" class="pull-left"> -->
+            <ul class="pull-right">
+                <li class="pull-left"><a href="/works_time">Leader Board</li>
+                <li class="pull-left">
+                    <% if user_signed_in? %>
+                        <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
+                    <% else %>
+                        <%= link_to('Login', new_user_session_path)  %>
+                    <% end %>
+                </li>
+                <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<!-- <section class="edit-delete">
+</section> -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<section id="leader_board">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12 user_edit" style="text-align: center;">
+        <h2 class="text-center nopadding">Edit User</h2>
+
+        <%= link_to({:controller => '/works_time', :action => 'index'}, :class=>"btn btn-default") do%>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+        <% end %>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password (leave blank if you dont want to change it)' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Password Confirmation' %>
+            <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', placeholder: 'Current password' %>
+            <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Please enter your Name' %>
+            <%= f.text_field :surname, autofocus: true, class: 'form-control', placeholder: 'Please enter your Surname' %>
+            <%= f.text_field :phone, autofocus: true, class: 'form-control', placeholder: 'Please enter your Phone' %>
+            <%= f.text_field :user_id, value:$user_id, autofocus: true, class:"user_id", disabled: true, class: 'form-control', placeholder: 'This is your UserID' %>
+          <div>
+            <%= f.submit "Update", class: 'btn btn-success btn-raised' %>
+          </div>
+        <% end %>
+
+        <h3>Cancel my account</h3>
+
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger btn-raised' %></p>
+
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
   </div>
+</section>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center footer-content">
+                <%= image_tag("logo-white.png", alt: "Logo PetaTime") %>
+                <p>© Copyright 2016 PetaTime - All Rights Reserved. Powered by Ruby on Rails.</p>
+                <p>Made by Kuba & Piotrek</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
 
-  <%= render(:partial => "form", :locals => {:f => f})%>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
