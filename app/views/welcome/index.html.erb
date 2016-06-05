@@ -7,9 +7,9 @@
                 <li class="pull-left"><a href="/works_time">Leader Board</li>
                 <li class="pull-left">
                     <% if user_signed_in? %>
-                        <%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %>
+                      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
                     <% else %>
-                        <%= link_to('Login', new_user_session_path)  %>
+                      <%= link_to('Log In', new_user_session_path)  %>
                     <% end %>
                 </li>
                 <li class="pull-left"><i id="open-sidebar" class="fa fa-bars" aria-hidden="true"></i></li>
