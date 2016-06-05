@@ -38,6 +38,7 @@
             <th>Task name</th>
             <th>Project name</th>
             <th>Is done</th>
+            <th>Count [h]</th>
             <th class="pull-right">Action</th>
           </tr>
           <% @tasks.each do |task|%>
@@ -46,6 +47,13 @@
               <th><%= task.title %></th>
               <th><%= task.project.title %></th>
               <th><%= task.is_done %></th>
+              <th>
+                <% if task.is_done? %>
+                    <%= ((task.updated_at - task.created_at) / 60 / 60 ).to_f.round(2) %>
+                <% else %>
+                    0
+                <% end %>
+               </th>
               <th class="pull-right">
                 <%= link_to("Edit", {:action => 'edit', :id => task.id}, :class=>"btn btn-raised btn-warning")%>
                 <%= link_to("Delete", {:action => 'destroy', :id => task.id }, :class=>"btn btn-raised btn-danger")%>
