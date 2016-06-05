@@ -26,6 +26,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+    @tasks = Task.all
+  end
+
   def destroy
     @project = Project.find(params[:id])
   end
