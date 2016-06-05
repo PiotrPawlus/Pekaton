@@ -5,9 +5,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def update
+  def updateAdmin
     user = User.find(params[:id])
-    # Object.update_attribute(:only_one_field, "Some Value")
+
     if user.is_admin
       if user.update_attribute(:is_admin, false)
         redirect_to(:action=>'index')
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         render('index')
       end
     else
-      if user.update_attribute(:is_admin, true)
+      if user.update_attribute(:is_admin, true) && user.update_attribute(:is_manager, true)
         redirect_to(:action=>'index')
       else
         render('index')
@@ -23,6 +23,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def updateManager
+    user = User.find(params[:id])
 
-
+    if user.is_manager
+      if user.update_attribute(:is_manager, false)
+        redirect_to(:action=>'index')
+      else
+        render('index')
+      end
+    else
+      if user.update_attribute(:is_manager, true)
+        redirect_to(:action=>'index')
+      else
+        render('index')
+      end
+    end
+  end
 end

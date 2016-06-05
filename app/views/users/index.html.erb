@@ -33,11 +33,11 @@
               <th>Name</th>
               <th>Surname</th>
               <th>E-mail</th>
+              <th>is_manager</th>
               <th>is_admin</th>
               <th>created_at</th>
               <th>updated_at</th>
-              <th>Actions</th>
-
+              <th class="pull-right">Action</th>
             </tr>
             <% @users.each do |user| %>
               <tr>
@@ -45,17 +45,27 @@
                 <th><%= user.name %></th>
                 <th><%= user.surname %></th>
                 <th><%= user.email %></th>
+                <th><%= user.is_manager%></th>
                 <th><%= user.is_admin%></th>
                 <th><%= user.created_at.strftime("%m/%d/%y %H:%M") %></th>
                 <th><%= user.updated_at.strftime("%m/%d/%y %H:%M") %></th>
                 <% if current_user.id != user.id %>
                   <% if user.is_admin%>
                     <th class="pull-right">
-                      <%= link_to("Not Admin", {:action => 'update', :id => user.id}, :class=>"btn btn-raised btn-warning")%>
+                      <%= link_to("Not Admin", {:action => 'updateAdmin', :id => user.id}, :class=>"btn btn-raised btn-danger")%>
                     </th>
                   <% else %>
                     <th class="pull-right">
-                      <%= link_to("Admin", {:action => 'update', :id => user.id}, :class=>"btn btn-raised btn-warning")%>
+                      <%= link_to("Admin", {:action => 'updateAdmin', :id => user.id}, :class=>"btn btn-raised btn-danger")%>
+                    </th>
+                  <% end %>
+                  <% if user.is_manager %>
+                    <th class="pull-right">
+                      <%= link_to("Not Manager", {:action => 'updateManager', :id => user.id}, :class=>"btn btn-raised btn-warning")%>
+                    </th>
+                  <% else %>
+                    <th class="pull-right">
+                      <%= link_to("Manager", {:action => 'updateManager', :id => user.id}, :class=>"btn btn-raised btn-warning")%>
                     </th>
                   <% end %>
                 <% end %>
