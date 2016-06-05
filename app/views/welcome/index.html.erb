@@ -52,28 +52,6 @@
     </div>
 </section>
 
-<div id="background-black" class="background-black-disactive"></div>
-
-<aside id="sidebar" class="sidebar-close">
-    <div class="sidebar-header">
-        <h5 class="text-center">MENU</h5>
-        <i id="close-sidebar" class="fa fa-times pull-right" aria-hidden="true"></i>
-    </div>
-    <div class="sidebar-menu">
-        <ul>
-            <a href="/"><li><i class="fa fa-home" aria-hidden="true"></i>HOME</li></a>
-            <a href="/works_time"><li><i class="fa fa-briefcase" aria-hidden="true"></i>Leader Board</li></a>
-            <a href="#"><li><i class="fa fa-certificate" aria-hidden="true"></i>My stats</li></a>
-            <a href="/users/edit"><li><i class="fa fa-cog" aria-hidden="true"></i>Settings</li></a>
-            <% if user_signed_in? %>
-                <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %> </li>
-            <% else %>
-                <li><i class="fa fa-sign-out" aria-hidden="true"></i><%= link_to('Login', new_user_session_path)  %></li>
-            <% end %>
-        </ul>
-    </div>
-</aside>
-
 <section id="before-footer">
     <div class="container">
         <div class="row">
